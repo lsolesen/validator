@@ -1,4 +1,5 @@
 <?php
+// somehow it would be clever if this could be used as a memory
 class Request_Raw
 {
     private $data = array();
@@ -34,4 +35,15 @@ class Request_Raw
     public function getForValidation($var) {
         return $this->data[$var];
     }
+
+    /*
+    public function __sleep() {
+        $properties = array();
+        $class = new ReflectionClass($this);
+        foreach ($class->getProperties() as $property) {
+            $properties[] = $property->getName();
+        }
+        return $properties;
+    }
+    */
 }
