@@ -6,7 +6,7 @@
     <property name="package-name" value="${phing.project.name}" />
     <property name="version" value="0.1.0" />
     <property name="stability" value="alpha" />
-    <property name="pear.channel" value="public.intraface.dk" />
+    <property name="pear.channel" value="validation-php.googlecode.com/svn" />
 
     <property name="source.dir" value="." />
     <property name="tests.dir" value="./tests" />
