@@ -2,7 +2,6 @@
 /**
  * A facade to make it easy to validate objects.
  */
-
 class Validator
 {
     private $coordinator;

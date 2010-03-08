@@ -5,8 +5,16 @@
  * However, this is not a real object, as it uses no object variables,
  * so maybe it is more clever to let the rule extend the SingleFieldSpecification?
  */
-final class Rule_Email extends Rule_Base
+final class Rule_Equal extends Rule_Base
 {
+    private $fieldname_compare;
+
+    function __construct($fieldname, $compare)
+    {
+        $this->fieldname = $fieldname;
+        $this->fieldname_compare = $compare;
+    }
+
     /**
      * Applies rule
      *
@@ -16,10 +24,6 @@ final class Rule_Email extends Rule_Base
      */
     public function isSatisfiedBy($candidate)
     {
-        $email = $candidate->get($this->fieldname);
-        if (empty($email) OR !eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $email)) {
-            return false;
-        }
-        return true;
+        return ($candidate->get($this->fieldname_compare) == $candidate->get($this->fieldname));
     }
 }
